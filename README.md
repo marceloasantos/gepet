@@ -1,5 +1,5 @@
 ## GEPET :syringe: :dog2: :heart:
-O gerenciador de vacinas do seu pet desenvolvido para a matéria de Laboratório de Banco de Dados IV da FATEC São José dos Campos - Prof. Jessen Vidal.
+O gerenciador de vacinas do seu pet. Desenvolvido para a matéria de Laboratório de Banco de Dados IV da FATEC São José dos Campos - Prof. Jessen Vidal.
 
 
 
