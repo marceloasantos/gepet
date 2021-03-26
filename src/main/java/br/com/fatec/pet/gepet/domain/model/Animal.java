@@ -9,12 +9,10 @@ import java.util.UUID;
 @Entity
 @Table(name = "ANI_ANIMAL")
 public class Animal {
-    public Animal(UUID id, String nome, Double peso, Usuario dono, Set<Vacina> vacinas) {
-        this.id = id;
+    public Animal(String nome, Double peso, Usuario dono) {
         this.nome = nome;
         this.peso = peso;
         this.dono = dono;
-        this.vacinas = vacinas;
     }
 
     @Id

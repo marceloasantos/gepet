@@ -33,7 +33,6 @@ public class UsuarioServiceImpl implements UsuarioService {
         }
 
         Usuario usuario = new Usuario(nome, email, senha, autorizacoes);
-
         usuarioRepository.save(usuario);
 
         return usuario;
