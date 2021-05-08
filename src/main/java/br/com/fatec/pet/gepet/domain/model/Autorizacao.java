@@ -9,7 +9,7 @@ import java.util.UUID;
 @Table(name = "AUT_AUTORIZACAO")
 public class Autorizacao {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Type(type = "uuid-char")
     @Column(name = "AUT_ID")
     private UUID id;

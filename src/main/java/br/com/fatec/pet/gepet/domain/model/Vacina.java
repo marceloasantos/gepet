@@ -1,5 +1,7 @@
 package br.com.fatec.pet.gepet.domain.model;
 
+import br.com.fatec.pet.gepet.api.view.View;
+import com.fasterxml.jackson.annotation.JsonView;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -20,6 +22,7 @@ public class Vacina {
     private UUID id;
 
     @Column(name = "VAC_NOME", length = 30, nullable = false)
+    @JsonView(View.PetCompleto.class)
     private String nome;
 
     public UUID getId() {

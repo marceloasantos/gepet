@@ -2,6 +2,7 @@ package br.com.fatec.pet.gepet.database.repository;
 
 import br.com.fatec.pet.gepet.domain.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Repository;
 
 import java.util.UUID;

@@ -1,5 +1,7 @@
 package br.com.fatec.pet.gepet.domain.model;
 
+import br.com.fatec.pet.gepet.api.view.View;
+import com.fasterxml.jackson.annotation.JsonView;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -19,24 +21,32 @@ public class Animal {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Type(type = "uuid-char")
     @Column(name = "ANI_ID")
+    @JsonView(View.PetResumo.class)
     private UUID id;
 
     @Column(name = "ANI_NOME", length = 50, nullable = false)
+    @JsonView(View.PetResumo.class)
     private String nome;
 
     @Column(name = "ANI_PESO", nullable = false)
+    @JsonView(View.PetResumo.class)
     private Double peso;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @Type(type = "uuid-char")
     @JoinColumn(name = "ANI_USU_ID")
+    @JsonView(View.PetCompleto.class)
     private Usuario dono;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "VAP_VACINA_APLICADA",
             joinColumns = { @JoinColumn(name = "VAP_ANI_ID") },
             inverseJoinColumns = { @JoinColumn(name = "VAP_VAC_ID") })
+    @JsonView(View.PetCompleto.class)
     private Set<Vacina> vacinas;
+
+    public Animal() {
+    }
 
     public UUID getId() {
         return id;

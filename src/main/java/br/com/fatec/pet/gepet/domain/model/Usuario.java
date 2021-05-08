@@ -1,5 +1,7 @@
 package br.com.fatec.pet.gepet.domain.model;
 
+import br.com.fatec.pet.gepet.api.view.View;
+import com.fasterxml.jackson.annotation.JsonView;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -23,9 +25,11 @@ public class Usuario {
     private UUID id;
 
     @Column(name = "USU_NOME", length = 50, nullable = false)
+    @JsonView(View.PetCompleto.class)
     private String nome;
 
     @Column(name = "USU_EMAIL", length = 50, nullable = false)
+    @JsonView(View.PetCompleto.class)
     private String email;
 
     @Column(name = "USU_SENHA")
@@ -39,6 +43,9 @@ public class Usuario {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "dono")
     private Set<Animal> animais;
+
+    public Usuario() {
+    }
 
     public Set<Autorizacao> getAutorizacoes() {
         return autorizacoes;
