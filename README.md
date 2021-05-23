@@ -26,10 +26,10 @@ O gerenciador de vacinas do seu pet. Desenvolvido para a matéria de Laboratóri
 - Usar dois níveis de acesso (usuário e administrador).
 
 
-#### Entrega 04/06 - Vue.js
+#### Entrega 04/06 - Front-end
 
-- Aplicação front-endem Vue.js que consuma as rotas criadas
-- Controle de estado com Vuex
+- Aplicação front-end que consuma as rotas criadas
+- Gerenciamento de estado
 - Várias rotas definidas (router)
-- Tratamento de erro em requisições (axios)
+- Tratamento de erro em requisições
 - Elementos visuais diferentes por nível de acesso
