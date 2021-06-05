@@ -14,7 +14,9 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service("usuarioService")
@@ -48,6 +50,56 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuarioRepository.save(usuario);
 
         return usuario;
+    }
+
+    @Override
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public List<Usuario> listarUsuarios() {
+        return usuarioRepository.findAll();
+    }
+
+    @Override
+    public Usuario buscarUsuarioPorNome(String nome) {
+        return usuarioRepository.findTop1ByNome(nome);
+    }
+
+    @Override
+    @Transactional
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public Usuario editarUsuario(String nome, String email, String nomeAutorizacao) {
+        Usuario usuario = usuarioRepository.findTop1ByNomeOrEmail(nome, email);
+
+        Set<Autorizacao> autorizacoes = new HashSet<Autorizacao>();
+        Autorizacao autorizacao = autorizacaoRepository.findByNome(nomeAutorizacao);
+
+        if (null == autorizacao) {
+            autorizacao = new Autorizacao();
+            autorizacao.setNome(nomeAutorizacao);
+            autorizacaoRepository.save(autorizacao);
+            autorizacoes.add(autorizacao);
+        } else {
+            autorizacoes.add(autorizacao);
+        }
+
+        if (usuario != null) {
+            usuario.setNome(nome);
+            usuario.setEmail(email);
+            usuario.setAutorizacoes(autorizacoes);
+        }
+
+        usuarioRepository.save(usuario);
+
+        return usuario;
+    }
+
+    @Override
+    public void removerUsuario(UUID id) {
+        usuarioRepository.deleteById(id);
+    }
+
+    @Override
+    public Usuario buscarUsuarioPorId(UUID id) {
+        return usuarioRepository.getOne(id);
     }
 
     @Override

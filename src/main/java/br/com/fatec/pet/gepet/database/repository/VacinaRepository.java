@@ -8,6 +8,5 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-@PreAuthorize("isAuthenticated()")
 public interface VacinaRepository extends JpaRepository<Vacina, UUID> {
 }

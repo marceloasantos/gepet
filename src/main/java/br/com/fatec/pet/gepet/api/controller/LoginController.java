@@ -32,6 +32,7 @@ public class LoginController {
 
         login.setSenha(null);
         login.setToken(JwtUtils.generateToken(usuario));
+        login.setAutorizacao(usuario.getAuthorities().toArray()[0].toString());
 
         return login;
     }

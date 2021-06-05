@@ -11,6 +11,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
@@ -66,5 +67,11 @@ public class AnimalServiceImpl implements AnimalService {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public void removerPet(UUID id) {
         animalRepository.deleteById(id);
+    }
+
+    @Override
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+    public List<Animal> findByDonoId(UUID idDono) {
+        return animalRepository.findByDonoId(idDono);
     }
 }

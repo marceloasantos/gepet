@@ -22,14 +22,15 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Type(type = "uuid-char")
     @Column(name = "USU_ID")
+    @JsonView(View.UsuarioResumo.class)
     private UUID id;
 
     @Column(name = "USU_NOME", length = 50, nullable = false)
-    @JsonView(View.PetCompleto.class)
+    @JsonView({View.PetCompleto.class, View.UsuarioResumo.class})
     private String nome;
 
     @Column(name = "USU_EMAIL", length = 50, nullable = false)
-    @JsonView(View.PetCompleto.class)
+    @JsonView({View.PetCompleto.class, View.UsuarioResumo.class})
     private String email;
 
     @Column(name = "USU_SENHA")
@@ -39,9 +40,11 @@ public class Usuario {
     @JoinTable(name = "USA_USUARIO_AUTORIZACAO",
             joinColumns = { @JoinColumn(name = "USA_USU_ID") },
             inverseJoinColumns = { @JoinColumn(name = "USA_AUT_ID") })
+    @JsonView(View.UsuarioResumo.class)
     private Set<Autorizacao> autorizacoes;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "dono")
+    @JsonView(View.UsuarioCompleto.class)
     private Set<Animal> animais;
 
     public Usuario() {

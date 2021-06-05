@@ -19,11 +19,15 @@ public class Vacina {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Type(type = "uuid-char")
     @Column(name = "VAC_ID")
+    @JsonView(View.VacinaResumo.class)
     private UUID id;
 
     @Column(name = "VAC_NOME", length = 30, nullable = false)
-    @JsonView(View.PetCompleto.class)
+    @JsonView({View.PetCompleto.class, View.VacinaResumo.class})
     private String nome;
+
+    public Vacina() {
+    }
 
     public UUID getId() {
         return id;

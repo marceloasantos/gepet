@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -28,14 +29,20 @@ public class AnimalController {
         return service.cadastrarPet(animal.getNome(), animal.getPeso(), animal.getIdDono());
     }
 
+    @GetMapping(value = "/todos")
+    @JsonView(View.PetResumo.class)
+    public List<Animal> listarAnimais(@RequestParam UUID idDono) {
+        return service.findByDonoId(idDono);
+    }
+
     @GetMapping(value = "/buscar-por-id")
     @JsonView(View.PetCompleto.class)
-    public Animal buscarPorId(@RequestHeader UUID id) {
+    public Animal buscarPorId(@RequestParam UUID id) {
         return repository.getOne(id);
     }
 
     @DeleteMapping(value = "/excluir")
-    public void excluirPet(@RequestHeader UUID id) {
+    public void excluirPet(@RequestParam UUID id) {
         service.removerPet(id);
     }
 
