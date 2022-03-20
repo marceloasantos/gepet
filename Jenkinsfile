@@ -28,6 +28,7 @@ pipeline {
 
             steps {
                 sh '''
+                    ls
                     docker build -t springio/gs-spring-boot-docker .
                     '''
             }
