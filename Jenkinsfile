@@ -33,7 +33,6 @@ pipeline {
             steps {
                 sh '''
                     mvn clean install
-                    docker build -t springio/gs-spring-boot-docker .
                     '''
             }
 
@@ -44,7 +43,8 @@ pipeline {
 
             steps {
                 sh '''
-                    docker run springio/gs-spring-boot-docker
+                    docker build -t springio/gs-spring-boot-docker .
+                    #docker run springio/gs-spring-boot-docker
                     '''
             }
 
