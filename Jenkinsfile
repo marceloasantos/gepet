@@ -1,5 +1,4 @@
 pipeline {
-
     agent any
     
     tools {
@@ -7,9 +6,7 @@ pipeline {
     }
 
     stages {
-    
         stage('Prepare enviroment') {
-               
             steps {
                 sh'''
                 sudo yum update -y
@@ -22,34 +19,32 @@ pipeline {
                 sh'''
                 sudo chmod 777 /var/run/docker.sock
                 '''
-
             }
         }
-
-
 
         stage('Build') {
-
             steps {
                 sh '''
-                    mvn clean install
-                    '''
+                mvn clean install -DskipTests
+                docker build -t springio/gs-spring-boot-docker .
+                '''
             }
-
         }
-        
         
         stage('Deploy') {
-
             steps {
                 sh '''
-                    docker build -t springio/gs-spring-boot-docker .
-                    docker run -d -p 8081:8081 --name cachorro springio/gs-spring-boot-docker
-                    '''
+                docker run -d -p 8081:8081 --name cachorro springio/gs-spring-boot-docker
+                '''
             }
-
         }
-
-
+        
+        stage('Cleanup') {
+            steps {
+                sh '''
+                docker rmi $(docker images -q --filter dangling=true)
+                '''
+            }
+        }
     }
-   }
+}
