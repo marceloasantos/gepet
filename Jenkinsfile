@@ -34,6 +34,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
+                docker rm -f cachorro || true
                 docker run -d -p 8081:8081 --name cachorro springio/gs-spring-boot-docker
                 '''
             }
