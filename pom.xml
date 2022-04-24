@@ -67,6 +67,18 @@
 				<configuration>
 					<propertyFile>liquibase.properties</propertyFile>
 				</configuration>
+				<executions>
+					<execution>
+						<id>liquibase-install</id>
+						<phase>install</phase>
+						<goals>
+							<goal>update</goal>
+						</goals>
+						<configuration>
+							<propertyFile>liquibase.properties</propertyFile>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
