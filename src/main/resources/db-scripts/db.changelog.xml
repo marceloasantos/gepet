@@ -10,5 +10,5 @@
     <preConditions>
         <dbms type="mysql" />
     </preConditions>
-    <includeAll path="src/main/resources/db-scripts/scripts/"/>
+    <includeAll path="db-scripts/scripts/"/>
 </databaseChangeLog>
