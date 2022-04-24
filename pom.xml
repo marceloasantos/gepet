@@ -65,6 +65,7 @@
 				<artifactId>liquibase-maven-plugin</artifactId>
 				<version>4.2.2</version>
 				<configuration>
+					<changeLogFile>src/main/resources/db-scripts/db.changelog.xml</changeLogFile>
 					<propertyFile>liquibase.properties</propertyFile>
 				</configuration>
 				<executions>
