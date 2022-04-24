@@ -2,7 +2,6 @@ package br.com.fatec.pet.gepet.api.controller;
 
 import br.com.fatec.pet.gepet.api.view.View;
 import br.com.fatec.pet.gepet.business.service.VacinaService;
-import br.com.fatec.pet.gepet.database.repository.VacinaRepository;
 import br.com.fatec.pet.gepet.domain.model.Vacina;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
