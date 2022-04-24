@@ -63,7 +63,7 @@
 			<plugin>
 				<groupId>org.liquibase</groupId>
 				<artifactId>liquibase-maven-plugin</artifactId>
-				<version>4.2.2</version>
+				<version>4.3.1</version>
 				<configuration>
 					<promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
 					<changeLogFile>src/main/resources/db-scripts/db.changelog.xml</changeLogFile>
@@ -81,6 +81,11 @@
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.9.1.2184</version>
 			</plugin>
 		</plugins>
 	</build>
