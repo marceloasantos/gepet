@@ -24,7 +24,7 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
             String authorization = servletRequest.getHeader(HttpHeaders.AUTHORIZATION);
 
             if (authorization != null) {
-                User usuario = JwtUtils.parseToken(authorization.replaceAll("Bearer ", ""));
+                User usuario = JwtUtils.parseToken(authorization.replace("Bearer ", ""));
 
                 Authentication credentials = new UsernamePasswordAuthenticationToken(
                         usuario.getUsername(),
