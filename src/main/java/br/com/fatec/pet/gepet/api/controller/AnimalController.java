@@ -31,8 +31,8 @@ public class AnimalController {
 
     @GetMapping(value = "/todos")
     @JsonView(View.PetResumo.class)
-    public List<Animal> listarAnimais(@RequestParam UUID idDono) {
-        return service.findByDonoId(idDono);
+    public List<Animal> listarAnimais() {
+        return service.findByDonoId();
     }
 
     @GetMapping(value = "/buscar-por-id")

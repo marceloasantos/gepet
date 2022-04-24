@@ -19,8 +19,8 @@ public class UsuarioController {
     private UsuarioService service;
 
     @PostMapping(value = "/novo")
-    public Usuario cadastrarUsuario(@RequestBody UsuarioDTO usuario) {
-        return service.criarUsuario(usuario.getNome(), usuario.getEmail(), usuario.getSenha(), usuario.getAutorizacao());
+    public void cadastrarUsuario(@RequestBody UsuarioDTO usuario) {
+        service.criarUsuario(usuario.getNome(), usuario.getEmail(), usuario.getSenha(), "ROLE_USER");
     }
 
     @GetMapping(value = "")

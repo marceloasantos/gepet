@@ -32,7 +32,6 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     @Transactional
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Usuario criarUsuario(String nome, String email, String senha, String nomeAutorizacao) {
         Set<Autorizacao> autorizacoes = new HashSet<Autorizacao>();
         Autorizacao autorizacao = autorizacaoRepository.findByNome(nomeAutorizacao);

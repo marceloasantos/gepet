@@ -8,6 +8,8 @@ import br.com.fatec.pet.gepet.domain.model.Usuario;
 import br.com.fatec.pet.gepet.domain.model.Vacina;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -71,7 +73,12 @@ public class AnimalServiceImpl implements AnimalService {
 
     @Override
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
-    public List<Animal> findByDonoId(UUID idDono) {
-        return animalRepository.findByDonoId(idDono);
+    public List<Animal> findByDonoId() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        String username = (String) authentication.getPrincipal();
+        Usuario usuario = usuarioRepository.findTop1ByNome(username);
+
+        return animalRepository.findByDonoId(usuario.getId());
     }
 }
