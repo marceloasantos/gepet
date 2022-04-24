@@ -21,8 +21,7 @@ public class VacinaController {
     @GetMapping(value = "/todos")
     @JsonView(View.VacinaResumo.class)
     public List<Vacina> listarVacinas() {
-        List<Vacina> vacinas = service.listarVacinas();
-        return vacinas;
+        return service.listarVacinas();
     }
 
     @DeleteMapping(value = "/excluir")
