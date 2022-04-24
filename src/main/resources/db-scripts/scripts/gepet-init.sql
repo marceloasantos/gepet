@@ -1,13 +1,7 @@
 --liquibase formatted sql
 
 --changeset gepet:1
-DROP DATABASE IF EXISTS gepet;
-
-CREATE DATABASE gepet;
-
---rollback DROP DATABASE gepet;
-
---changeset gepet:2
+USE gepet;
 DROP TABLE IF EXISTS usu_usuario;
 
 CREATE TABLE usu_usuario (
@@ -19,7 +13,8 @@ CREATE TABLE usu_usuario (
 );
 --rollback DROP TABLE usu_usuario;
 
---changeset gepet:3
+--changeset gepet:2
+USE gepet;
 DROP TABLE IF EXISTS ani_animal;
 
 CREATE TABLE ani_animal (
@@ -32,7 +27,8 @@ CREATE TABLE ani_animal (
 
 --rollback DROP TABLE ani_animal;
 
---changeset gepet:4
+--changeset gepet:3
+USE gepet;
 DROP TABLE IF EXISTS vac_vacina;
 
 CREATE TABLE vac_vacina (
@@ -42,7 +38,8 @@ CREATE TABLE vac_vacina (
 
 --rollback DROP TABLE vac_vacina;
 
---changeset gepet:5
+--changeset gepet:4
+USE gepet;
 DROP TABLE IF EXISTS vap_vacina_aplicada;
 
 CREATE TABLE vap_vacina_aplicada (
@@ -55,7 +52,8 @@ CREATE TABLE vap_vacina_aplicada (
 
 --rollback DROP TABLE vap_vacina_aplicada;
 
---changeset gepet:6
+--changeset gepet:5
+USE gepet;
 DROP TABLE IF EXISTS aut_autorizacao;
 
 CREATE TABLE aut_autorizacao (
@@ -65,7 +63,8 @@ CREATE TABLE aut_autorizacao (
 
 --rollback DROP TABLE aut_autorizacao;
 
---changeset gepet:7
+--changeset gepet:6
+USE gepet;
 DROP TABLE IF EXISTS usa_usuario_autorizacao;
 
 CREATE TABLE usa_usuario_autorizacao (
@@ -77,7 +76,8 @@ CREATE TABLE usa_usuario_autorizacao (
 
 --rollback DROP TABLE usa_usuario_autorizacao;
 
---changeset gepet:8
+--changeset gepet:7
+USE gepet;
 DELETE FROM aut_autorizacao;
 
 INSERT INTO aut_autorizacao (aut_id, aut_nome) VALUES ('8d517c06-a7bf-11ec-840c-00ff0c3d5b70', 'ROLE_ADMIN');
