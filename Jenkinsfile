@@ -25,6 +25,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
+                mvn compile package
                 mvn clean install -DskipTests
                 docker build -t springio/gs-spring-boot-docker .
                 '''
