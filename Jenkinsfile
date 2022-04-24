@@ -25,7 +25,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                mvn liquibase:update -Dliquibase.dropFirst=false
+                mvn compile -DskipTests
                 mvn clean install -DskipTests
                 docker build -t springio/gs-spring-boot-docker .
                 '''
