@@ -2,8 +2,6 @@
 
 --changeset gepet:1
 USE gepet;
-DROP TABLE IF EXISTS usu_usuario;
-
 CREATE TABLE usu_usuario (
 	usu_id VARCHAR(64),
 	usu_nome VARCHAR(50) NOT NULL,
@@ -15,8 +13,6 @@ CREATE TABLE usu_usuario (
 
 --changeset gepet:2
 USE gepet;
-DROP TABLE IF EXISTS ani_animal;
-
 CREATE TABLE ani_animal (
 	ani_id VARCHAR(64) PRIMARY KEY,
 	ani_nome VARCHAR(50) NOT NULL,
@@ -29,8 +25,6 @@ CREATE TABLE ani_animal (
 
 --changeset gepet:3
 USE gepet;
-DROP TABLE IF EXISTS vac_vacina;
-
 CREATE TABLE vac_vacina (
 	vac_id VARCHAR(64) PRIMARY KEY,
 	vac_nome VARCHAR(30) NOT NULL
@@ -40,8 +34,6 @@ CREATE TABLE vac_vacina (
 
 --changeset gepet:4
 USE gepet;
-DROP TABLE IF EXISTS vap_vacina_aplicada;
-
 CREATE TABLE vap_vacina_aplicada (
 	vap_ani_id VARCHAR(64),
 	vap_vac_id VARCHAR(64),
@@ -54,8 +46,6 @@ CREATE TABLE vap_vacina_aplicada (
 
 --changeset gepet:5
 USE gepet;
-DROP TABLE IF EXISTS aut_autorizacao;
-
 CREATE TABLE aut_autorizacao (
 	aut_id VARCHAR(64) PRIMARY KEY,
 	aut_nome VARCHAR(20)
@@ -65,8 +55,6 @@ CREATE TABLE aut_autorizacao (
 
 --changeset gepet:6
 USE gepet;
-DROP TABLE IF EXISTS usa_usuario_autorizacao;
-
 CREATE TABLE usa_usuario_autorizacao (
 	usa_usu_id VARCHAR(64),
 	usa_aut_id VARCHAR(64),
