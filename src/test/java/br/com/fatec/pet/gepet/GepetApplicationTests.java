@@ -7,7 +7,6 @@ import br.com.fatec.pet.gepet.database.repository.AnimalRepository;
 import br.com.fatec.pet.gepet.database.repository.UsuarioRepository;
 import br.com.fatec.pet.gepet.database.repository.VacinaRepository;
 import br.com.fatec.pet.gepet.domain.model.Animal;
-import br.com.fatec.pet.gepet.domain.model.Usuario;
 import br.com.fatec.pet.gepet.domain.model.Vacina;
 import io.jsonwebtoken.lang.Assert;
 import org.junit.jupiter.api.Test;
