@@ -19,3 +19,5 @@ docker run -d \
 ```
 
 As configurações da pipeline de CI/CD estão no arquivo Jenkinsfile.
+
+![](gepet-diagram.png)
