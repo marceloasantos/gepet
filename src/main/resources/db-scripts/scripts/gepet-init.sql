@@ -2,7 +2,7 @@
 
 --changeset gepet:1
 USE gepet;
-CREATE TABLE usu_usuario (
+CREATE TABLE IF NOT EXISTS usu_usuario (
 	usu_id VARCHAR(64),
 	usu_nome VARCHAR(50) NOT NULL,
 	usu_email VARCHAR(50) NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE usu_usuario (
 
 --changeset gepet:2
 USE gepet;
-CREATE TABLE ani_animal (
+CREATE TABLE IF NOT EXISTS ani_animal (
 	ani_id VARCHAR(64) PRIMARY KEY,
 	ani_nome VARCHAR(50) NOT NULL,
 	ani_peso FLOAT NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE ani_animal (
 
 --changeset gepet:3
 USE gepet;
-CREATE TABLE vac_vacina (
+CREATE TABLE IF NOT EXISTS vac_vacina (
 	vac_id VARCHAR(64) PRIMARY KEY,
 	vac_nome VARCHAR(30) NOT NULL
 );
@@ -34,7 +34,7 @@ CREATE TABLE vac_vacina (
 
 --changeset gepet:4
 USE gepet;
-CREATE TABLE vap_vacina_aplicada (
+CREATE TABLE IF NOT EXISTS vap_vacina_aplicada (
 	vap_ani_id VARCHAR(64),
 	vap_vac_id VARCHAR(64),
 	CONSTRAINT pk_vap_vacina_aplicada PRIMARY KEY (vap_ani_id, vap_vac_id),
@@ -46,7 +46,7 @@ CREATE TABLE vap_vacina_aplicada (
 
 --changeset gepet:5
 USE gepet;
-CREATE TABLE aut_autorizacao (
+CREATE TABLE IF NOT EXISTS aut_autorizacao (
 	aut_id VARCHAR(64) PRIMARY KEY,
 	aut_nome VARCHAR(20)
 );
@@ -55,7 +55,7 @@ CREATE TABLE aut_autorizacao (
 
 --changeset gepet:6
 USE gepet;
-CREATE TABLE usa_usuario_autorizacao (
+CREATE TABLE IF NOT EXISTS usa_usuario_autorizacao (
 	usa_usu_id VARCHAR(64),
 	usa_aut_id VARCHAR(64),
 	CONSTRAINT fk_usa_usu_id FOREIGN KEY (usa_usu_id) REFERENCES usu_usuario(usu_id),
