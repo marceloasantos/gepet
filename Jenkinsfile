@@ -9,10 +9,10 @@ pipeline {
         stage('Prepare enviroment') {
             steps {
                 sh'''
-                sudo apt-get update
-                sudo apt-get install docker
-                sudo service docker start
-                sudo usermod -a -G docker ec2-user
+                apt-get update
+                apt-get install docker
+                service docker start
+                usermod -a -G docker ec2-user
                 '''
 
                 sh'''
