@@ -12,11 +12,11 @@ pipeline {
                 echo "jenkins" | sudo -S apt-get update
                 sudo apt-get install docker.io -y
                 sudo service docker start
-                echo "jenkins" | sudo -S usermod -a -G docker ubuntu
+                sudo usermod -a -G docker ubuntu
                 '''
 
                 sh'''
-                sudo chmod 777 /var/run/docker.sock
+                echo "jenkins" | sudo -S chmod 777 /var/run/docker.sock
                 '''
             }
         }
