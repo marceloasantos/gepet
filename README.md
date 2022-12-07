@@ -22,4 +22,4 @@ As configurações da pipeline de CI/CD estão no arquivo Jenkinsfile.
 
 ![](gepet-diagram.png)
 
-Atualizado em 06/12/2022 - 21:57
+Atualizado em 06/12/2022 - 22:02
